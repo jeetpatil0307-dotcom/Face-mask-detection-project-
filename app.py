@@ -15,7 +15,7 @@ st.title("Face Mask Detection")
 if "open_camera" not in st.session_state:
     st.session_state.open_camera = False
 
-model = load_model("mask_final.keras")
+model = load_model("mask_final.keras", compile=False)
 
 uploaded_file = st.file_uploader("Upload an Image ",type = ["jpg","jpeg","png"])
 
