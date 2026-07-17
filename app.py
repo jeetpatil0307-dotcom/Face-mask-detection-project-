@@ -1,4 +1,4 @@
-# pip install pillow
+
 
 import streamlit as st
 import pandas as pd
@@ -15,7 +15,11 @@ st.title("Face Mask Detection")
 if "open_camera" not in st.session_state:
     st.session_state.open_camera = False
 
-model = load_model("mask_final.keras", compile=False)
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+model_path = os.path.join(BASE_DIR, "mask_final.keras")
+
+model = load_model(model_path, compile=False)
 
 uploaded_file = st.file_uploader("Upload an Image ",type = ["jpg","jpeg","png"])
 
